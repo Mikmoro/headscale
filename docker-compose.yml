@@ -7,12 +7,6 @@ services:
     volumes:
       - headscale_data:/var/lib/headscale
       - ./config.yaml:/etc/headscale/config.yaml:ro
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.headscale.rule=Host(`dgx.m2informatica.es`)"
-      - "traefik.http.routers.headscale.entrypoints=websecure"
-      - "traefik.http.routers.headscale.tls.certresolver=letsencrypt"
-      - "traefik.http.services.headscale.loadbalancer.server.port=8080"
 
 volumes:
   headscale_data:
